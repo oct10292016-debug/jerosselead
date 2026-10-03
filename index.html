@@ -740,7 +740,7 @@ function renderCartPreview(){
     const isGiftKey=key.startsWith('贈品_');
     const isBizKey=key.startsWith('創業_');
     const isEvKey=key.startsWith('活動_');
-    const label=isEvKey?(()=>{const parts=key.split('::');const eid=parts[0].slice(3);const ev=events.find(e=>String(e.id)===eid);return '[活動] '+(ev?ev.name:(parts[1]||'活動組合'));})():((isGiftKey?'[贈品] '+key.slice(3):(isBizKey?'[創業] '+key.slice(3):key));
+    const label=isEvKey?(()=>{const parts=key.split('::');const eid=parts[0].slice(3);const ev=events.find(e=>String(e.id)===eid);return '[活動] '+(ev?ev.name:(parts[1]||'活動組合'));})():(isGiftKey?'[贈品] '+key.slice(3):(isBizKey?'[創業] '+key.slice(3):key));
     const safeKey=key.replace(/'/g,"\\'");
     return`<div class="cart-row">
       <span class="cart-row-name">${label}</span>
